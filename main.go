@@ -9,12 +9,12 @@ import (
 var wg sync.WaitGroup
 
 func say(s string, repeat int) {
+	defer wg.Done()
 
 	for ; 0 < repeat; repeat-- {
 		fmt.Println(s)
 		time.Sleep(time.Millisecond * 100)
 	}
-	wg.Done()
 
 }
 
